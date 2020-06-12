@@ -50,6 +50,8 @@ describe("The questions list on the profile page for @yuchenglin3", () => {
     cy.findByText(questionTitle).closest("a").as("question");
     cy.get("@question").findByTestId("question-like-icon").as("heartButton");
     cy.get("@heartButton").should("have.text", "1");
+    cy.get("@heartButton").click();
+    cy.get("@heartButton").should("have.text", "0");
     cy.get("@question").findByTestId("question-more-icon").click();
     cy.findByText("Edit Post").click();
     cy.findByText("Delete").click();
